@@ -4,9 +4,5 @@
   "repository": "https://github.com/AmericanAirlines/Hangar",
   "logo": "https://avatars2.githubusercontent.com/u/28813424?s=200&v=4",
   "keywords": ["node", "express", "typescript", "jest", "react", "American Airlines", "hackathon sponsor"],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+  "image": "heroku/heroku"
 }

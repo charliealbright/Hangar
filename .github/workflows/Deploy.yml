@@ -38,3 +38,11 @@ jobs:
        uses: actions/heroku@master
        env:
          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+       with:
+         args: container:push -a american-hangar web
+     - name: release
+       uses: actions/heroku@master
+       env:
+         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+       with:
+         args: container:release -a american-hangar web
