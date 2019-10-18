@@ -1,5 +1,6 @@
 FROM node:10
 EXPOSE 80
-COPY . /node/app
-WORKDIR /node/app
+COPY . /app
+WORKDIR /app
+RUN npm install
 CMD [ "npm", "start" ]
