@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import { Judge } from '../entities/judge';
 import { Team } from '../entities/team';
+import { JudgingVote } from '../entities/judgingVote';
 
 const api = express();
 
@@ -77,6 +78,10 @@ api.post('/skip', async (req, res) => {
   await judge.skip();
 
   res.send(await getJudgeTeams(judge));
+});
+
+api.post('/tabulate', async (req, res) => {
+  res.json(await JudgingVote.tabulate());
 });
 
 export const apiApp = api;
