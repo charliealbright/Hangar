@@ -39,7 +39,12 @@ const getJudgeTeams = async (judge: Judge): Promise<{ currentTeam: Team; previou
 };
 
 api.get('/judge/teams', async (req, res) => {
-  const judge = await Judge.findOneOrFail(parseInt(req.query.id, 10));
+  const judge = await Judge.findOne(parseInt(req.query.id, 10));
+
+  if (!judge) {
+    res.sendStatus(500).send('not ok');
+    return;
+  }
 
   res.send(await getJudgeTeams(judge));
 });

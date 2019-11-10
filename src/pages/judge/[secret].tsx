@@ -51,6 +51,7 @@ const judge = (): JSX.Element => {
         if (!res.ok) {
           setError('Problem fetching teams');
           setLoading(false);
+          localStorage.removeItem('judgeId');
           return;
         }
 
