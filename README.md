@@ -35,6 +35,11 @@ If you'd like to customize the app, fork this repo. If you have an idea for some
 
 When you're ready to deploy your app, simply change the URL for the `Deploy to Heroku` button then merge it into your `master` branch. Once your repo is updated, just use that button you'll be good to go!
 
+### Configuration Items
+Throughout the event, there are several toggles you may want to enable:
+- `supportRequestQueueActive`: `boolean` - When this is `true`, students will be able to join to join the queue to come chat with your team. When you're leaving for the night or when judging starts, make sure to flip the value to `false`
+- `teamRegistrationActive`: `boolean` - This allows teams to register to be judged. Enable this toggle *after* students have been given their table number.
+
 <!-- After the front end display for help queue is created, describe overriding the template here -->
 
 ## CI/CD
