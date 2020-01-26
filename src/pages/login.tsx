@@ -1,6 +1,7 @@
 /* global window, fetch */
 import React from 'react';
 import { useFormik } from 'formik';
+import queryString from 'querystring';
 
 const LoginPage: React.FC = () => {
   const formik = useFormik({
@@ -21,7 +22,8 @@ const LoginPage: React.FC = () => {
         return;
       }
 
-      window.location.href = '/';
+      const redirectString = queryString.decode(window.location.search).redirect[0]
+      window.location.href = redirectString ?? '/'
     },
   });
 
@@ -38,6 +40,7 @@ const LoginPage: React.FC = () => {
                 type="password"
                 placeholder="Shhh..."
                 className={`form-control ${formik.errors.secret ? 'is-invalid' : ''}`}
+                value={formik.values.secret}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />

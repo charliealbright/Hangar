@@ -7,7 +7,8 @@ export const requireAuth = (redirect = false): Handler => (req, res, next): void
   if (req.signedCookies?.authed === 'yes' || req.headers.authorization === adminSecret) {
     next();
   } else if (redirect) {
-    res.redirect('/login');
+    const redirectString = req.path === '/' ? '' : `?redirect=${req.path}`;
+    res.redirect(`/login${redirectString}`);
   } else {
     res.sendStatus(401);
     logger.error(
